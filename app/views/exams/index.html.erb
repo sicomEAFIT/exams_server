@@ -1,0 +1,28 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<%= link_to "Nuevo examen", new_exam_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Link de descarga</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td><%= exam.name %></td>
+        <td><%= link_to "Descargar examen", exam.pdf_url %></td>
+        <td><%= button_to "Borrar", exam, method: :delete, 
+             class: "btn btn-danger" %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
