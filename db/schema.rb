@@ -11,14 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502002620) do
+ActiveRecord::Schema.define(version: 20150504210759) do
 
   create_table "exams", force: :cascade do |t|
     t.string   "name"
-    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "pdf"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "number"
+    t.string   "image"
+    t.integer  "exam_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

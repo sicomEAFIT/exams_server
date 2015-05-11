@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :exams, only: [:index, :new, :create, :destroy]
+  resources :exams, only: [:index, :show, :new, :create, :destroy]
   root "exams#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
