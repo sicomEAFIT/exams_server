@@ -12,8 +12,10 @@
   <%= form_for @exam, html: { multipart: true } do |f| %>
     <%= f.label "Nombre" %>
     <%= f.text_field :name %>
-    <%= f.label "Archivo adjunto"%>
-    <%= f.file_field :attachment %>
+    <%= f.fields_for :pages do |p| %>
+      <%= p.label "Imágenes" %><br>
+      <%= p.file_field :image, :multiple => true, name: "pages[image][]" %>
+    <% end %>
     <%= f.submit "Subir", class: "btn btn-primary" %>
   <% end %>
 </div>
